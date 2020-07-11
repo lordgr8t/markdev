@@ -1,540 +1,179 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+@session_start();
+$LangArray = array("ru", "en");
+$DefaultLang = "ru";
+if(@$_SESSION['NowLang']) {
+	if(!in_array($_SESSION['NowLang'], $LangArray)) {
+		$_SESSION['NowLang'] = $DefaultLang;
+	}
+}
+else {
+	$_SESSION['NowLang'] = $DefaultLang;
+}
+$language = addslashes($_GET['lang']);
+if($language) {
+	if(!in_array($language, $LangArray)) {
+		$_SESSION['NowLang'] = $DefaultLang;
+	}
+	else {
+		$_SESSION['NowLang'] = $language;
+	}
+}
+$CurentLang = addslashes($_SESSION['NowLang']);
+include_once ("lang/".$CurentLang.".php");
+?>
+<!DOCTYPE HTML>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author" content="">
-
-	<title>Clean - One Page Personal Portfolio</title>
-
-	<!-- CSS -->
-	<link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-	<link href="assets/css/font-awesome.min.css" rel="stylesheet" media="screen">
-	<link href="assets/css/simple-line-icons.css" rel="stylesheet" media="screen">
-	<link href="assets/css/animate.css" rel="stylesheet">
-    
-	<!-- Custom styles CSS -->
-	<link href="assets/css/style.css" rel="stylesheet" media="screen">
-    
-    <script src="assets/js/modernizr.custom.js"></script>
-       
+	<title><?php echo $Lang['title']; ?></title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
-<body>
+<body class="is-preload">
 
-	<!-- Preloader -->
+	<!-- Wrapper -->
+	<div id="wrapper">
 
-	<div id="preloader">
-		<div id="status"></div>
-	</div>
+		<!-- Header -->
+		<header id="header">
+			<div class="logo">
 
-	<!-- Home start -->
+				<span class="fas fa-desktop"></span>
+			</div>
+			<div class="content">
+				<div class="inner">
+					<h1><?php echo $Lang['title']; ?></h1>
+					<p><?php echo $Lang['webdev']; ?> <br> HTML-CSS GOD
+					/ PHP / JS-JQ / SQL</p>
+				</div>
+			</div>
+			<nav>
+				<ul>
+					
+					<li><a href="#work"><?php echo $Lang['works']; ?></a></li>
+					<li><a href="#about"><?php echo $Lang['about']; ?></a></li>
+					<li><a href="#contact"><?php echo $Lang['contact']; ?></a></li>
 
-	<section id="home" class="pfblock-image screen-height">
-        <div class="home-overlay"></div>
-		<div class="intro">
-			<div class="start">Hello, my name is Mark Dev and I am</div>
-			<h1>Web Developer</h1>
-			<div class="start">creating modern and responsive Websites</div>
+				</ul>
+			</nav>
+			<nav id="lang_wrapper">
+				<ul>
+					<li class="lang_pick"><a href="index.php?lang=ru">RU</a></li>
+					<li class="lang_pick"><a href="index.php?lang=en">EN</a></li>
+				</ul>
+			</nav>
+		</header>
+
+
+		<!-- Main -->
+		<div id="main">
+
+			<!-- Work -->
+			<article id="work">
+				<h2 class="major"><?php echo $Lang['myworks']; ?></h2>
+				<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
+				<div class="works_wrapper">
+					<div class="work">
+						<a href="http://musictape.ru/" target="_blanck"><img src="assets/works/musictape/logo.png" alt="" class="workimg"></a>
+					</div>
+					<div class="work">
+						<a href="assets/works/lucid/index.html" target="_blanck"><img src="assets/works/lucid/logo.png" alt="" class="workimg"></a>
+					</div>
+				</div>
+				<div class="works_wrapper">
+					<div class="work">
+						<a href="assets/works/counsel/index.html" target="_blanck"><img src="assets/works/counsel/logo.png" alt="" class="workimg"></a>
+					</div>
+					<div class="work">
+						<a href="assets/works/landing-page/index.html" target="_blanck"><img src="assets/works/landing-page/logo.png" alt="" class="workimg"></a>
+					</div>
+				</div>
+			</article>
+
+			<!-- About -->
+			<article id="about">
+				<h2 class="major"><?php echo $Lang['about']; ?></h2>
+				<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
+				<div class="about_wrapper">
+					<div class="about_ican">
+						<?php echo $Lang['ican']; ?>
+						<li><?php echo $Lang['adaptsite']; ?></li>
+						<li><?php echo $Lang['dinamicsite']; ?></li>
+						<li><?php echo $Lang['snimsite']; ?></li>
+						<li><?php echo $Lang['saitbd']; ?></li>
+						<li><?php echo $Lang['localaizsait']; ?></li>
+						<li><?php echo $Lang['optimezecode']; ?></li>
+						<li><?php echo $Lang['moneysite']; ?></li>
+						<li><?php echo $Lang['workapi']; ?></li>
+
+					</div>
+					<div class="about_idevelop">
+						<?php echo $Lang['idevelop']; ?>
+						<li>html/css</li>
+						<li>bootstrap</li>
+						<li>php</li>
+						<li>js/jq</li>
+						<li>sass/scss</li>
+						<li>git</li>
+						<li>sql</li>
+						<li>WordPress</li>
+					</div>
+
+				</div>
+			</article>
+
+			<!-- Contact -->
+			<article id="contact">
+				<h2 class="major"><?php echo $Lang['contact']; ?></h2>
+				<form method="post" action="#">
+					<div class="fields">
+						<div class="field half">
+							<label for="name"><?php echo $Lang['name']; ?></label>
+							<input type="text" name="name" id="name" />
+						</div>
+						<div class="field half">
+							<label for="email"><?php echo $Lang['mail']; ?></label>
+							<input type="text" name="email" id="email" />
+						</div>
+						<div class="field">
+							<label for="message"><?php echo $Lang['messege']; ?></label>
+							<textarea name="message" id="message" rows="4"></textarea>
+						</div>
+					</div>
+					<ul class="actions">
+						<li><input type="submit" value="<?php echo $Lang['send']; ?>" class="primary" /></li>
+						<!-- <li><input type="reset" value="Reset" /></li> -->
+					</ul>
+				</form>
+				<ul class="icons">
+					<li><a href="https://vk.com/smlsth" target="_blanck" class="icon brands fa-vk"><span class="label">Vk</span></a></li>
+					<li><a href="https://twitter.com/gr8t_mark" target="_blanck" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="https://www.weblancer.net/users/lordgr8t/" target="_blanck" class="fas fa-briefcase"><span class="label"></span></a></li>
+					<li><a href="https://github.com/lordgr8t" target="_blanck" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+				</ul>
+			</article>
+
+			</article>
+
 		</div>
 
-        <a href="#services">
-		<div class="scroll-down">
-            <span>
-                <i class="fa fa-angle-down fa-2x"></i>
-            </span>
-		</div>
-        </a>
+		<!-- Footer -->
+		<footer id="footer">
+			<p class="copyright">&copy; <?php echo $Lang['title']; ?></p>
+		</footer>
 
-	</section>
-
-	<!-- Home end -->
-
-	<!-- Navigation start -->
-
-	<header class="header">
-
-		<nav class="navbar navbar-custom" role="navigation">
-
-			<div class="container">
-
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#custom-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="index.html">Mark Dev</a>
-				</div>
-
-				<div class="collapse navbar-collapse" id="custom-collapse">
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#home">Home</a></li>
-						<li><a href="#services">Services</a></li>
-                        <li><a href="#portfolio">Works</a></li>
-                        <li><a href="#skills">Skills</a></li>
-						<!-- <li><a href="#testimonials">Testimonials</a></li> -->
-						<li><a href="#contact">Contact</a></li>
-					</ul>
-				</div>
-
-			</div><!-- .container -->
-
-		</nav>
-
-	</header>
-
-	<!-- Navigation end -->
-
-    <!-- Services start -->
-
-	<section id="services" class="pfblock pfblock-gray">
-		<div class="container">
-			<div class="row">
-
-				<div class="col-sm-6 col-sm-offset-3">
-<!-- 
-					<div class="pfblock-header wow fadeInUp">
-						<h2 class="pfblock-title">This is what I do</h2>
-						<div class="pfblock-line"></div>
-						<div class="pfblock-subtitle">
-							No one lights a lamp in order to hide it behind the door: the purpose of light is to create more light, to open people’s eyes, to reveal the marvels around.
-						</div>
-					</div> -->
-
-				</div>
-
-			</div>
-
-			<div class="row">
-
-				<div class="col-sm-3">
-
-					<div class="iconbox wow slideInLeft">
-						<div class="iconbox-icon">
-							<span class="icon-magic-wand"></span>
-						</div>
-						<div class="iconbox-text">
-							<h3 class="iconbox-title">Web Design</h3>
-							<div class="iconbox-desc">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ratione optio maiores.
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-				<div class="col-sm-3">
-
-					<div class="iconbox wow slideInLeft">
-						<div class="iconbox-icon">
-							<span class="icon-puzzle"></span>
-						</div>
-						<div class="iconbox-text">
-							<h3 class="iconbox-title">Web Programming</h3>
-							<div class="iconbox-desc">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus dolore quidem magni.
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-				<div class="col-sm-3">
-
-					<div class="iconbox wow slideInRight">
-						<div class="iconbox-icon">
-							<span class="icon-badge"></span>
-						</div>
-						<div class="iconbox-text">
-							<h3 class="iconbox-title">Branding</h3>
-							<div class="iconbox-desc">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. In ab vitae ipsum.
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-				<div class="col-sm-3">
-
-					<div class="iconbox wow slideInRight">
-						<div class="iconbox-icon">
-							<span class="icon-question"></span>
-						</div>
-						<div class="iconbox-text">
-							<h3 class="iconbox-title">Consultation</h3>
-							<div class="iconbox-desc">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam aliquam voluptatibus, blanditiis.
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-			</div><!-- .row -->
-		</div><!-- .container -->
-	</section>
-
-	<!-- Services end -->
-    
-	<!-- Portfolio start -->
-
-	<section id="portfolio" class="pfblock">
-		<div class="container">
-			<div class="row">
-
-				<div class="col-sm-6 col-sm-offset-3">
-
-					<!-- <div class="pfblock-header wow fadeInUp">
-						<h2 class="pfblock-title">My works</h2>
-						<div class="pfblock-line"></div>
-						<div class="pfblock-subtitle">
-							No one lights a lamp in order to hide it behind the door: the purpose of light is to create more light, to open people’s eyes, to reveal the marvels around.
-						</div>
-					</div> -->
-
-				</div>
-
-			</div><!-- .row -->
-            
-            
-            <div class="row">
-                
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    
-                    <div class="grid wow zoomIn">
-                       <a href="https://musictape.ru" target="_blank">
-                        <figure class="effect-bubba">
-                        	
-                            <img src="assets/images/item-1.jpg" alt="img01"/>
-                            <figcaption>
-                                <h2><span>MUSICTAPE</span></h2>
-                                <p>Music social network with free music</p>
-                            </figcaption>			
-                        </figure>
-                        </a>
-                    </div>
-                    
-                </div>
-
-                <div class="col-xs-12 col-sm-4 col-md-4">
-            
-                    <div class="grid wow zoomIn">
-                        <figure class="effect-bubba">
-                            <img src="assets/images/item-2.jpg" alt="img01"/>
-                            <figcaption>
-                                <h2>title<span>title</span></h2>
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </figcaption>			
-                        </figure>
-                    </div>
-                    
-                </div>
-                
-                <div class="col-xs-12 col-sm-4 col-md-4">
-            
-                    <div class="grid wow zoomIn">
-                        <figure class="effect-bubba">
-                            <img src="assets/images/item-3.jpg" alt="img01"/>
-                            <figcaption>
-                                <h2>title <span>title</span></h2>
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </figcaption>			
-                        </figure>
-                    </div>
-                    
-                </div>
-                
-                <div class="col-xs-12 col-sm-4 col-md-4">
-            
-                    <div class="grid wow zoomIn">
-                        <figure class="effect-bubba">
-                            <img src="assets/images/item-4.jpg" alt="img01"/>
-                            <figcaption>
-                                <h2>title <span>title</span></h2>
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </figcaption>			
-                        </figure>
-                    </div>
-                    
-                </div>
-                
-                <div class="col-xs-12 col-sm-4 col-md-4">
-            
-                    <div class="grid wow zoomIn">
-                        <figure class="effect-bubba">
-                            <img src="assets/images/item-5.jpg" alt="img01"/>
-                            <figcaption>
-                                <h2>title <span>title</span></h2>
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </figcaption>			
-                        </figure>
-                    </div>
-                    
-                </div>
-                
-                <div class="col-xs-12 col-sm-4 col-md-4">
-            
-                    <div class="grid wow zoomIn">
-                        <figure class="effect-bubba">
-                            <img src="assets/images/item-6.jpg" alt="img01"/>
-                            <figcaption>
-                                <h2>title <span>title</span></h2>
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </figcaption>			
-                        </figure>
-                    </div>
-                    
-                </div>
-                
-            </div>
-
-
-		</div><!-- .contaier -->
-
-	</section>
-
-	<!-- Portfolio end -->
-    
-    <!-- Skills start -->
-    
-    <section class="pfblock pfblock-gray" id="skills">
-		
-			<div class="container">
-			
-				<div class="row skills">
-					
-					<div class="row">
-
-                        <div class="col-sm-6 col-sm-offset-3">
-
-                            <!-- <div class="pfblock-header wow fadeInUp">
-                                <h2 class="pfblock-title">My Skills</h2>
-                                <div class="pfblock-line"></div>
-                                <div class="pfblock-subtitle">
-                                    No one lights a lamp in order to hide it behind the door: the purpose of light is to create more light, to open people’s eyes, to reveal the marvels around.
-                                </div>
-                            </div> -->
-
-                        </div>
-
-                    </div><!-- .row -->
-					
-					<div class="col-sm-6 col-md-3 text-center">
-						<span data-percent="80" class="chart easyPieChart" style="width: 140px; height: 140px; line-height: 140px;">
-                            <span class="percent">80</span>
-                        </span>
-						<h3 class="text-center">Programming</h3>
-					</div>
-					<div class="col-sm-6 col-md-3 text-center">
-						<span data-percent="90" class="chart easyPieChart" style="width: 140px; height: 140px; line-height: 140px;">
-                            <span class="percent">90</span>
-                        </span>
-						<h3 class="text-center">Design</h3>
-					</div>
-					<div class="col-sm-6 col-md-3 text-center">
-						<span data-percent="85" class="chart easyPieChart" style="width: 140px; height: 140px; line-height: 140px;">
-                            <span class="percent">85</span>
-                        </span>
-						<h3 class="text-center">Marketing</h3>
-					</div>
-					<div class="col-sm-6 col-md-3 text-center">
-						<span data-percent="95" class="chart easyPieChart" style="width: 140px; height: 140px; line-height: 140px;">
-                            <span class="percent">95</span>
-                        </span>
-						<h3 class="text-center">UI / UX</h3>
-					</div>
-					
-				</div><!--End row -->
-			
-			</div>
-		
-    </section>
-    
-    <!-- Skills end -->
-
-	<!-- CallToAction start -->
-
-	<section class="calltoaction">
-		<div class="container">
-
-			<div class="row">
-
-				<div class="col-md-12 col-lg-12">
-					<h2 class="wow slideInRight" data-wow-delay=".1s">ARE YOU READY TO START?</h2>
-					<div class="calltoaction-decription wow slideInRight" data-wow-delay=".2s">
-						I'm available for freelance projects.
-					</div>
-				</div>
-
-				<div class="col-md-12 col-lg-12 calltoaction-btn wow slideInRight" data-wow-delay=".3s">
-					<a href="#contact" class="btn btn-lg">Hire Me</a>
-				</div>
-
-			</div><!-- .row -->
-		</div><!-- .container -->
-	</section>
-
-	<!-- CallToAction end -->
-
-	<!-- Testimonials start -->
-
-<!-- 	<section id="testimonials" class="pfblock pfblock-gray">
-
-		<div class="container">
-            
-            <div class="row">
-
-				<div class="col-sm-6 col-sm-offset-3">
-
-					<div class="pfblock-header wow fadeInUp">
-						<h2 class="pfblock-title">What my clients say</h2>
-						<div class="pfblock-line"></div>
-						<div class="pfblock-subtitle">
-							No one lights a lamp in order to hide it behind the door: the purpose of light is to create more light, to open people’s eyes, to reveal the marvels around.
-						</div>
-					</div>
-
-				</div>
-
-			</div> -->
-
-            <!-- <div class="row">
-
-			<div id="cbp-qtrotator" class="cbp-qtrotator">
-                <div class="cbp-qtcontent">
-                    <img src="assets/images/client-1.jpg" alt="client-1" />
-                    <blockquote>
-                      <p>Work with John was a pleasure. He understood exactly what I wanted and created an awesome site for my company.</p>
-                      <footer>Pino Caruso</footer>
-                    </blockquote>
-                </div>
-                <div class="cbp-qtcontent">
-                    <img src="assets/images/client-2.jpg" alt="client-2" />
-                    <blockquote>
-                      <p>I'm really happy with the results. Get 100% satisfaction is difficult but Alex got it without problems.</p>
-                      <footer>Jane Doe</footer>
-                    </blockquote>
-                </div>
-
-            </div>		
-
-            </div> -->
-
-					
-	<!-- 	</div>
-	</section> -->
-
-	<!-- Testimonial end -->
-
-
-	<!-- Contact start -->
-
-	<section id="contact" class="pfblock">
-		<div class="container">
-			<div class="row">
-
-				<div class="col-sm-6 col-sm-offset-3">
-
-					<!-- <div class="pfblock-header">
-						<h2 class="pfblock-title">Drop me a line</h2>
-						<div class="pfblock-line"></div>
-						<div class="pfblock-subtitle">
-							No one lights a lamp in order to hide it behind the door: the purpose of light is to create more light, to open people’s eyes, to reveal the marvels around.
-						</div>
-					</div> -->
-
-				</div>
-
-			</div><!-- .row -->
-
-			<div class="row">
-
-				<div class="col-sm-6 col-sm-offset-3">
-
-					<form id="contact-form" role="form">
-						<div class="ajax-hidden">
-							<div class="form-group wow fadeInUp">
-								<label class="sr-only" for="c_name">Name</label>
-								<input type="text" id="c_name" class="form-control" name="c_name" placeholder="Name">
-							</div>
-
-							<div class="form-group wow fadeInUp" data-wow-delay=".1s">
-								<label class="sr-only" for="c_email">Email</label>
-								<input type="email" id="c_email" class="form-control" name="c_email" placeholder="E-mail">
-							</div>
-
-							<div class="form-group wow fadeInUp" data-wow-delay=".2s">
-								<textarea class="form-control" id="c_message" name="c_message" rows="7" placeholder="Message"></textarea>
-							</div>
-
-							<button type="submit" class="btn btn-lg btn-block wow fadeInUp" data-wow-delay=".3s">Send Message</button>
-						</div>
-						<div class="ajax-response"></div>
-					</form>
-
-				</div>
-
-			</div><!-- .row -->
-		</div><!-- .container -->
-	</section>
-
-	<!-- Contact end -->
-
-	<!-- Footer start -->
-
-	<footer id="footer">
-		<div class="container">
-			<div class="row">
-
-				<div class="col-sm-12">
-
-					<ul class="social-links">
-						<li><a href="index.html#" class="wow fadeInUp"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="index.html#" class="wow fadeInUp" data-wow-delay=".1s"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="index.html#" class="wow fadeInUp" data-wow-delay=".2s"><i class="fa fa-google-plus"></i></a></li>
-						<li><a href="index.html#" class="wow fadeInUp" data-wow-delay=".4s"><i class="fa fa-pinterest"></i></a></li>
-						<li><a href="index.html#" class="wow fadeInUp" data-wow-delay=".5s"><i class="fa fa-envelope"></i></a></li>
-					</ul>
-
-					<!-- <p class="heart">
-                        Made with <span class="fa fa-heart fa-2x animated pulse"></span> in Nottingham
-                    </p>
-                    <p class="copyright">
-                        © 2015 John Doe | Images: <a href="https://unsplash.com/">Unsplash</a> & <a href="http://zoomwalls.com/">Zoomwalls</a>
-					</p> -->
-
-				</div>
-
-			</div><!-- .row -->
-		</div><!-- .container -->
-	</footer>
-
-	<!-- Footer end -->
-
-	<!-- Scroll to top -->
-
-	<div class="scroll-up">
-		<a href="#home"><i class="fa fa-angle-up"></i></a>
 	</div>
-    
-    <!-- Scroll to top end-->
 
-	<!-- Javascript files -->
+	<!-- BG -->
+	<div id="bg"></div>
 
-	<script src="assets/js/jquery-1.11.1.min.js"></script>
-	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/js/jquery.parallax-1.1.3.js"></script>
-	<script src="assets/js/imagesloaded.pkgd.js"></script>
-	<script src="assets/js/jquery.sticky.js"></script>
-	<script src="assets/js/smoothscroll.js"></script>
-	<script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/jquery.easypiechart.js"></script>
-    <script src="assets/js/waypoints.min.js"></script>
-    <script src="assets/js/jquery.cbpQTRotator.js"></script>
-	<script src="assets/js/custom.js"></script>
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
 
 </body>
 </html>

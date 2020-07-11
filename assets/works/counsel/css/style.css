@@ -1,0 +1,399 @@
+/*font-family: 'Montserrat', sans-serif;*/
+*{
+	margin: 0;
+}
+a{
+	text-decoration: none;
+}
+
+/*clsses*/
+.dflex{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+}
+.jcsb{
+	justify-content: space-between;
+}
+.mont_t{
+	font-family: 'Montserrat', sans-serif;
+}
+.mont_big{
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+}
+h1{
+	text-transform: uppercase;
+	font-size: 25px;
+	color: #002e5b;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+}
+h2{
+	color: #666;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	font-size: 20px;
+}
+h3{
+	color: #333;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	font-size: 14px;
+}
+.a_title {
+	font-size: 16px;
+	text-decoration: underline;
+	color: #002e5b;
+	text-transform: uppercase;
+}
+/*clsses*/
+
+/*welcome container (wlc)*/
+
+.welcome_container_bg {
+	background-image: url(../img/bg.png);
+	height: 896px;
+
+}
+.welcome_container {
+	max-width: 1170px;
+	height: 150px;
+	margin: 0 auto;
+	padding-top: 50px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+ul{
+	list-style: none;
+	margin-top: 25px;
+}
+li a{
+	margin-left: 30px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 14px;
+	font-family: 'Montserrat', sans-serif;
+	color: #fff;
+}
+.wlc_l {
+}
+.wlc_l_text {
+	color: #fde428;
+	text-transform: uppercase;
+	margin-top: 400px;
+}
+.wlc_r {
+	position: absolute;
+	left: 66%;
+}
+.wlc_r_titletext {
+	font-size: 48px;
+	color: #fff;
+	position: relative;
+	top: 269px;
+	left: -180px;
+}
+.wlc_r_a {
+	text-decoration: underline;
+	color: #fde428;
+	font-size: 22px;
+	position: relative;
+	top: 296px;
+	left: -74px;
+	font-weight: 600;
+}
+.wlc_r_img {
+	margin-bottom: 160px;
+}
+
+/*container under welcome container (cuwc)*/
+
+.cuwc {
+	max-width: 1170px;
+	margin: 0 auto;
+	height: 524px;
+}
+.cuwc_title {
+	margin-top: 100px;
+}
+.cuwc_undertitle {
+	margin-top: 28px;
+}
+.cuwc_text {
+	margin-top: 24px;
+	margin-bottom: 16px;
+}
+.cuwc_r {
+	height: 524px;
+}
+.cuwc_box_yellow {
+	position: relative;
+	left: 125px;
+}
+.cuwc_box_gray {
+	position: relative;	
+	top: -430px;	
+}
+
+/*statistic container (stat)*/
+
+.stat_bg {
+	background-color: #f4f4f4;
+}
+.stat {
+	max-width: 1170px;
+	margin: 0 auto;
+	height: 686px;
+}
+.graphic {
+	margin-top: 101px;
+}
+.stattitle {
+	margin-top: 101px;
+	margin-bottom: 27px;
+}
+.stattext {
+	margin-top: 29px;
+	margin-bottom: 45px;
+}
+
+/*little container contact now (conn)*/
+
+.conn_bg {
+	background-color: #002e5b;
+}
+.conn {
+	max-width: 1170px;	
+	margin: 0 auto;
+	height: 91px;
+}
+.conn_text {
+	margin-top: 37px;
+	font-family: 'Montserrat', sans-serif;
+	color: #fff;
+}
+.conn_btn {
+	margin-top: 24px;
+	font-family: 'Montserrat', sans-serif;
+	color: #fff;
+	border:solid 1px #fde428;
+	background-color: #fde428;
+	color: #002e5b;
+	font-weight: 800;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+/*container popular services (cps)*/
+
+.cps {
+	max-width: 1170px;
+	margin: 0 auto;
+	height: 669px;
+}
+.cps_title {
+	margin-top: 100px;
+	margin-bottom: 30px;
+	text-align: center;
+}
+.cps_undertitle {
+	text-align: center;
+	margin-bottom: 46px;
+}
+.cps_block_title {
+	margin-top: 37px;
+	margin-bottom: 30px;
+	color: #002e5b;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 800;
+	text-transform: uppercase;
+}
+.cps_block_text {
+	color: #333;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 14px;
+	font-weight: 300;
+}
+.cps_block{
+	max-width: 32%;
+}
+.cps_block_img_1{
+	max-width: 100%;
+}
+/*container big stats (cbs)*/
+
+.cbs_bg {
+	background-color: #002e5b;
+}
+.cbs {
+	max-width: 1170px;
+	margin: 0 auto;
+	height: 360px;
+	text-align: center;
+}
+.cbs_title {
+	font-family: 'Montserrat', sans-serif;
+	color: #fff;
+	font-size: 50px;
+	margin-top: 140px;
+	margin-bottom: 30px;
+}
+.cbs_block{
+	width: 25%;
+}
+.cbs_undertitle {
+	font-family: 'Montserrat', sans-serif;
+	color: #fff;
+	font-size: 14px;
+}
+
+
+/*video container (vidc)*/
+
+.video_container {
+	max-width: 1170px;
+	margin: 0 auto;
+	height: 525px;
+}
+.vidc_yellowbox {
+	position: relative;
+	left: 121px;
+}
+#video{
+	position: relative;
+	top: -425px;
+}
+.vidc_title {
+	margin-top: 98px;
+	margin-bottom: 28px;
+}
+.vidc_text {
+	margin-top: 26px;
+	margin-bottom: 36px;
+}
+
+/*big text block (btb)*/
+
+.btb_bg {
+	background-color: #06294a;
+}
+.btb {
+	max-width: 1170px;
+	margin: 0 auto;
+	height: 540px;
+	text-align: center;
+}
+.btb_title {
+	font-size: 80px;
+	color:#fff;
+	padding-top: 125px;
+	margin-bottom: 12px;
+}
+.btb_text {
+	color:#fff;
+	margin-bottom: 80px;
+	line-height: 3;
+	font-weight: 300;
+}
+.btb_footer_text {
+	color:#fff;
+}
+
+/*container maps (ccm)*/
+
+.ccm {
+	max-width: 1170px;
+	margin: 0 auto;
+	height: 646px;
+}
+.ccm_title {
+	text-transform: uppercase;
+	text-align: center;
+	margin-top: 101px;
+	margin-bottom: 27px;
+}
+.ccm_undertitle{
+	text-align: center;
+}
+.blockap_title {
+	text-transform: uppercase;
+	font-size: 18px;
+	color: #002e5b;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+	margin-top: 20px;
+}
+.blockmap{
+	margin-top: 49px;
+}
+.blockmap_adres, .blockmap_mail, .blockmap_phone {
+	text-transform: uppercase;
+	font-size: 12px;
+	color: #002e5b;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	margin-top: 15px;
+}
+
+/* footer */
+
+.footer_bg{
+	background-color:  #002e5b;
+}
+
+.footer {
+	max-width: 1170px;
+	margin: 0 auto;
+	height: 80px;
+}
+.footer_l{
+	padding-top: 35px;
+}
+.copywrite_white {
+	color: #fff;
+}
+.copywrite_yellow {
+	color: #fde428;
+}
+
+#sociac_image{
+	height: 15px;
+	width: 15px;
+	margin-top: 35px;
+	margin-right: 20px;
+}
+
+@media (max-width: 850px){
+	li a {
+		display: none;
+	}
+	#adaptiv_btn{
+		display: block;
+	}
+	.adaptiv_btn {
+		width: 30px;
+	}
+	.adaptiv_btn_line1 {
+		width: 30px;
+		background-color: #fff;
+		height: 5px;
+		margin-bottom: 2px;
+		
+	}
+	.adaptiv_btn_line2 {
+		width: 30px;
+		background-color: #fff;
+		height: 5px;
+		margin-bottom: 2px;
+	}
+	.adaptiv_btn_line3 {
+		width: 30px;
+		background-color: #fff;
+		height: 5px;
+		margin-bottom: 2px;
+	}
+
+}

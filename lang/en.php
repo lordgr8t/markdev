@@ -1,0 +1,25 @@
+<?php
+$Lang = array(
+	"title" 	=> "Mark Miller",
+	"webdev"	=> "Web Developer",
+	"works"	=> "Works",
+	"about"	=> "About",
+	"contact"	=> "Contact",
+	"myworks"	=> "My works",
+	"ican"	=> "I can",
+	"adaptsite"	=> "To create adaptive websites",
+	"dinamicsite"	=> "Create dynamic sites",
+	"snimsite"	=> "Animate a site",
+	"saitbd"	=> "Create sites with a db",
+	"localaizsait"	=> "To localize a website",
+	"optimezecode"	=> "Optimize your site code",
+	"moneysite"	=> "Monetize the site",
+	"workapi"	=> "Working with the API",
+	"idevelop"	=> "I'm developing on",
+	"name"	=> "Name",
+	"mail"	=> "Email",
+	"messege"	=> "Message",
+	"send"	=> "Send Message",
+	"reset"	=> "Reset",
+);
+?>
